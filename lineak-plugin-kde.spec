@@ -4,21 +4,21 @@
 #
 %define		packagename	lineak_kdeplugins
 
-Summary:	These are KDE related plugins for the lineakd daemon.
-Summary(pl):	To s± wtyczki do demona lineakd zwi±zane z KDE.
+Summary:	KDE related plugins for the lineakd daemon
+Summary(pl):	Wtyczki do demona lineakd zwi±zane z KDE
 Name:		lineak-plugin-kde
 Version:	0.8.4
 Release:	0.9
 License:	GPL
-Url:		http://lineak.sourceforge.net
 Group:		Applications/System
 Source0:	http://dl.sourceforge.net/lineak/%{packagename}-%{version}.tar.gz
 # Source0-md5:	4ddfc475e4df27f8822e0b08c0f701b5
+URL:		http://lineak.sourceforge.net/
 BuildRequires:	autoconf >= 2.54
 BuildRequires:	automake
 BuildRequires:	libstdc++-devel
 BuildRequires:	libtool
-BuildRequires:	lineakd >= %{version}
+BuildRequires:	lineakd-devel >= %{version}
 Requires:	lineakd >= %{version}
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -58,7 +58,7 @@ These plugins support the following macros:
 To jest zbiór wtyczek do lineakd. Wtyczki te pozwalaj± na dowi±zywanie
 akcji do specjalnych klawiszy.
 
-Ta paczka zawiera nastêpuj±ce wtyczki:
+Ten pakiet zawiera nastêpuj±ce wtyczki:
  amarok_plugin
  juk_plugin
  kdesktop_plugin
@@ -106,10 +106,13 @@ rm -rf $RPM_BUILD_ROOT
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 
+rm -f $RPM_BUILD_ROOT%{_libdir}/lineakd/plugins/*.la
+
 %clean
 rm -rf $RPM_BUILD_ROOT
+
 %files
 %defattr(644,root,root,755)
 %doc AUTHORS COPYING ChangeLog README TODO
-%{_libdir}/lineakd/plugins/*
+%attr(755,root,root) %{_libdir}/lineakd/plugins/*.so
 %{_mandir}/*/*
