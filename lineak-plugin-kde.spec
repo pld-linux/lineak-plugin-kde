@@ -9,16 +9,18 @@ Summary(pl):	Wtyczki do demona lineakd zwi±zane z KDE
 Name:		lineak-plugin-kde
 Version:	0.8.4
 Release:	0.9
-License:	GPL
+License:	GPL v2+
 Group:		Applications/System
 Source0:	http://dl.sourceforge.net/lineak/%{packagename}-%{version}.tar.gz
 # Source0-md5:	4ddfc475e4df27f8822e0b08c0f701b5
 URL:		http://lineak.sourceforge.net/
 BuildRequires:	autoconf >= 2.54
 BuildRequires:	automake
+BuildRequires:	kdelibs-devel >= 3.0
 BuildRequires:	libstdc++-devel
 BuildRequires:	libtool
 BuildRequires:	lineakd-devel >= %{version}
+BuildRequires:	sed >= 4.0
 Requires:	lineakd >= %{version}
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -89,6 +91,10 @@ Te wtyczki obs³uguj± nastêpuj±ce makra:
 %prep
 %setup -q -n %{packagename}-%{version}
 
+# kill plugin dir existence test
+sed -i -e 's/test ! -d \$pdir/false/' admin/lineak.m4.in
+cat admin/{acinclude.m4.in,lineak.m4.in} > acinclude.m4
+
 %build
 %{__libtoolize}
 %{__aclocal}
@@ -96,7 +102,9 @@ Te wtyczki obs³uguj± nastêpuj±ce makra:
 %{__autoheader}
 %{__automake}
 
-%configure
+%configure \
+	--with-lineak-plugindir=%{_libdir}/lineakd/plugins \
+	--with-qt-libraries=%{_libdir}
 
 %{__make}
 
@@ -113,6 +121,6 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc AUTHORS COPYING ChangeLog README TODO
+%doc AUTHORS ChangeLog README TODO
 %attr(755,root,root) %{_libdir}/lineakd/plugins/*.so
-%{_mandir}/*/*
+%{_mandir}/man1/lineak_kdeplugins.1*
