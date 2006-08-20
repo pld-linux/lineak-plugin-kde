@@ -2,23 +2,23 @@
 # TODO:
 # - seperate each plugin
 #
-%define		packagename	lineak_kdeplugins
+%define		packagename	lineak-kdeplugins
 
 Summary:	KDE related plugins for the lineakd daemon
 Summary(pl):	Wtyczki do demona lineakd zwi±zane z KDE
 Name:		lineak-plugin-kde
-Version:	0.8.4
-Release:	0.9
+Version:	0.9
+Release:	0.1
 License:	GPL v2+
 Group:		Applications/System
 Source0:	http://dl.sourceforge.net/lineak/%{packagename}-%{version}.tar.gz
-# Source0-md5:	4ddfc475e4df27f8822e0b08c0f701b5
+# Source0-md5:	8046d3f2a199dc5745e512a2c1cff8ae
 URL:		http://lineak.sourceforge.net/
 BuildRequires:	autoconf >= 2.54
 BuildRequires:	automake
 BuildRequires:	kdelibs-devel >= 3.0
 BuildRequires:	libstdc++-devel
-BuildRequires:	libtool
+BuildRequires:	libtool >= 2:1.5
 BuildRequires:	lineakd-devel >= %{version}
 BuildRequires:	sed >= 4.0
 Requires:	lineakd >= %{version}
