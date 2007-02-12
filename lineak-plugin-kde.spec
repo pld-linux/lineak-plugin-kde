@@ -5,7 +5,7 @@
 %define		packagename	lineak-kdeplugins
 
 Summary:	KDE related plugins for the lineakd daemon
-Summary(pl):	Wtyczki do demona lineakd zwi±zane z KDE
+Summary(pl.UTF-8):   Wtyczki do demona lineakd zwiÄ…zane z KDE
 Name:		lineak-plugin-kde
 Version:	0.9
 Release:	0.1
@@ -56,11 +56,11 @@ These plugins support the following macros:
 
  konq_plugin: KONQUEROR
 
-%description -l pl
-To jest zbiór wtyczek do lineakd. Wtyczki te pozwalaj± na dowi±zywanie
+%description -l pl.UTF-8
+To jest zbiÃ³r wtyczek do lineakd. Wtyczki te pozwalajÄ… na dowiÄ…zywanie
 akcji do specjalnych klawiszy.
 
-Ten pakiet zawiera nastêpuj±ce wtyczki:
+Ten pakiet zawiera nastÄ™pujÄ…ce wtyczki:
  amarok_plugin
  juk_plugin
  kdesktop_plugin
@@ -68,7 +68,7 @@ Ten pakiet zawiera nastêpuj±ce wtyczki:
  kmix_plugin
  konqueror_plugin
 
-Te wtyczki obs³uguj± nastêpuj±ce makra:
+Te wtyczki obsÅ‚ugujÄ… nastÄ™pujÄ…ce makra:
  amarok_plugin:	AMAROK_PLAY, AMAROK_PAUSE, AMAROK_STOP, AMAROK_PLAYPAUSE,
 		AMAROK_BACK, AMAROK_FORWARD, AMAROK_SEEK, AMAROK_ADDMEDIA,
 		AMAROK_VOLUMEUP, AMAROK_VOLUMEDOWN, AMAROK_VOLUMEMUTE,
