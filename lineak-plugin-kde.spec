@@ -5,7 +5,7 @@
 %define		packagename	lineak-kdeplugins
 
 Summary:	KDE related plugins for the lineakd daemon
-Summary(pl.UTF-8):   Wtyczki do demona lineakd związane z KDE
+Summary(pl.UTF-8):	Wtyczki do demona lineakd związane z KDE
 Name:		lineak-plugin-kde
 Version:	0.9
 Release:	0.1
